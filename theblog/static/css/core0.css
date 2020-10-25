@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar-brand{
+    color: aqua;
+}
+li{
+    list-style: none;
+}
+@media(max-width:900px){
+    .response{
+        width: fit-content;
+        height: auto;
+        margin-top: 50px;
+        margin:auto;
+    }
+}
+@media(max-width:768px){
+    .sidebar{
+        display: none;
+    }
+}
+.pagination {
+    display: inline-block;
+  }
+.pagination a{
+    border: 1px solid rgb(33, 62, 251);
+    padding: 3px;
+    border-radius: 2px;
+    background-color: rgb(193, 230, 247);
+    font-weight: bold;
+    color: rgb(96, 93, 93);
+    text-decoration: none;
+   /* background-color: rgb(33, 62, 251);
+    border-radius: .2rem; */
+}
+.pagination a:hover{
+    border: 2px solid rgb(33, 62, 251);
+    padding: 3px;
+    color: white;
+    background-color: rgb(45, 141, 189);
+    border-radius: .2rem;
+    text-decoration: none;
+}
+.ft-blog-heading{
+    font-family: 'Anton', sans-serif;
+    color: black;
+}
+.ft-blog-heading:hover{
+    font-family: 'Anton', sans-serif;
+    color: black;
+}
+.ft-blog-paragraph{
+    word-wrap: break-word;
+    white-space: normal;
+    color: rgb(0, 0, 0);
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+/*             --------     For Footer    --------         */
+
+/* body{
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+p{
+    margin: 0;
+    padding: 0;
+} */
+/* .blogfoot{
+    width: 100vw;
+    position: sticky;
+    height: 5rem;
+    background-color: black;
+    margin-top: auto;
+}
+.blogfoot p{
+    color: #fff;
+    width: 100vw;
+    font-size: 1.6rem;
+    text-align: center;
+    text-transform: capitalize;
+}
+ */

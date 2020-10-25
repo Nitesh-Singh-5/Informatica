@@ -1,0 +1,35 @@
+<div class="response">
+{% extends "base.html" %}
+
+{% block title %} 
+Edit profile page
+{% endblock title %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+{% if user.id == profile.user.id %}
+    <h2>Edit Profile Page...</h2><br>
+<div class="form-group">
+<form action="" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+{{form.media}}
+{{form.as_p}}
+<input value="Save" type="submit" class="btn btn-secondary">
+</form>
+</div>
+{% else %}
+
+<h3>You are not the correct user</h3>
+{% endif %}
+
+
+{% else %}
+   
+   you're not allowed here
+
+{% endif %}
+
+{% endblock content %}
+
+</div>

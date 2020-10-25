@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login
+{% endblock title %}
+
+{% block content %}
+
+<h1>Login...</h1>
+<br /><br />
+
+
+
+<div class="form-group">
+    <form method="POST" validate>
+        {% csrf_token %}
+
+        <div class="form-group">
+            <input type="text" class="form-control" name="username" placeholder="Username">
+        </div>
+
+
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password">
+
+        </div>
+
+        <br />
+        <button class="btn btn-secondary">Login</button>
+</div>
+</form>
+<br />
+
+Not Registered? Sign Up <a href="{% url 'register' %}">Here...</a>
+
+{% if form.non_field_errors %}
+{% for error in form.non_field_errors %}
+<p class="alert alert-danger my-3">{{error}}</p>
+{% endfor %}
+{% endif %}
+
+{% endblock content %}

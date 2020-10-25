@@ -1,0 +1,31 @@
+<div class="response">
+{% extends "base.html" %}
+
+{% block title %} 
+Create a new Profile 
+{% endblock title %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<h2>create Profile...</h2><br>
+<div class="form-group">
+<form action="" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+
+{{form.as_p}}
+<input value="Create Profile" type="submit" class="btn btn-secondary">
+</form>
+</div>
+
+
+{% else %}
+   
+   you're not allowed here
+
+{% endif %}
+
+{% endblock content %}
+
+</div>

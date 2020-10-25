@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if category_posts %}
+
+
+
+<h1> {{ cats|capfirst }} </h1><hr style="text-align:left;margin-left:0">
+
+{% for post in category_posts %}
+
+<li><a href="{% url 'article_detail' post.pk %}" class="ft-blog-heading">{{post.title|capfirst}}</a> - {{post.author.first_name}}
+    {{post.author.last_name}} - {{post.post_date}}
+    {% if user.is_authenticated %}
+    <small>
+        <a href="{% url 'update_post' post.pk %}">- (Edit)</a>
+
+        <a href="{% url 'delete_post' post.pk %}">(Delete)</a>
+
+    </small></li>
+{% endif %}
+
+<p> {{post.body|truncatewords:15|safe}} <br></p><br>
+
+{% endfor %}
+
+{% else %}
+  <h2>Sorry this page doestn't exits</h2>
+{% endif %}
+
+{% endblock content %}

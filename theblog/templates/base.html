@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/core0.css' %}">
+
+  <title>{% block title %}Awesome blog{% endblock title %}</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'home' %}">Awesome blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <!--  Category menu -->
+        {% if cat_menu %}
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Categories
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+            {% for item in cat_menu  %}
+            <a class="dropdown-item" href="{% url 'category' item|slugify %}">{{item}}</a>
+            {% endfor %}
+
+          </div>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'category_list' %}">Category List</a>
+        </li>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'add_post' %}">Add Post</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'add_category' %}">Add Category</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Profile
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% if user.profile.id %}
+            <a class="dropdown-item" href="{% url 'edit_profile' user.profile.id %}">Edit Profile page</a>
+
+            <a class="dropdown-item" href="{% url 'show_profile' user.profile.id %}">Show Profile Page</a>
+
+            {% else %}
+            <a class="dropdown-item" href="{% url 'create_profile' %}">Create Profile page</a>
+            {% endif %}
+
+            <a class="dropdown-item" href="{% url 'user_edit' %}">Edit Settings</a>
+
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>
+
+
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register' %}">Register</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link " href="{% url 'login' %}">Login</a>
+        </li>
+        {% endif %}
+    </div>
+  </nav>
+
+  <br>
+  <div class="container">
+    {% block content %}
+
+    {% endblock content %}
+  </div>
+
+  <!-- <footer class="blogfoot">
+    <p> Awesome Blog has all c rights reserver </p>
+  </footer> -->
+
+  <script src="{% static 'js/all.min.js' %}"></script>
+  <script src="{% static 'js/popper.js' %}"></script>
+  <script src="{% static 'js/jquery.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+
+</html>
+

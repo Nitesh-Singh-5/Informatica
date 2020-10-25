@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Post</h2>
+
+<ul>
+{% if post_list %}
+    {% for post in object_list %}
+    <li><a href="{% url 'article_detail' post.pk %}" class="ft-blog-heading">{{post.title|capfirst}}</a> - <a href="{% url 'category' post.category|slugify %}" style="text-decoration:none">{{post.category|capfirst}} - </a> {{post.author.first_name|capfirst}}
+        {{post.author.last_name|capfirst}} - {{post.post_date}}
+        {% if user.is_authenticated %}
+        {% if user.id == post.author.id or request.user.is_staff %}
+
+        <small>
+            <a href="{% url 'update_post' post.pk %}">- (Edit)</a>
+
+            <a href="{% url 'delete_post' post.pk %}">(Delete)</a>
+             
+        </small></li>
+
+        {% endif %}
+        {% endif %}
+      
+   <p>{{post.snippet}} <br></p><br>
+    {% endfor %}
+
+     {# .... **Now the pagination section** .... #}
+    {% if is_paginated %}
+        <div class="pagination mt-3">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+
+</ul>
+
+{% else %}
+
+ <p>No Post found!!! :(</p>
+
+{% endif %}
+
+{% endblock content %}
+
+

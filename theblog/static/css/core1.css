@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: aqua;
+    display: flex;
+}
+.navbar-brand{
+    color: aqua;
+}
+@media(max-width:900px){
+    .response{
+        width: fit-content;
+        height: auto;
+        margin-top: 50px;
+        margin:auto;
+    }
+}
+@media(max-width:768px){
+    .sidebar{
+        display: none;
+    }
+}
+
+

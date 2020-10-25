@@ -1,0 +1,35 @@
+<div class="response">
+{% extends "base.html" %}
+
+{% block title %}
+Edit Blog Post
+{% endblock title %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+{% if user.id == post.author.id or request.user.is_staff %}
+<h2>Update Post...</h2><br>
+<div class="form-group">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.media}}
+        {{form.as_p}}
+        <input value="Update" type="submit" class="btn btn-secondary">
+    </form>
+</div>
+{% else %}
+
+you are not allowed here !!
+{% endif %}
+
+{% else %}
+
+you are not allowed here !!
+
+{% endif %}
+
+
+{% endblock content %}
+
+</div>
