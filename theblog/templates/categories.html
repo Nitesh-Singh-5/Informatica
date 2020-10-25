@@ -21,8 +21,8 @@
     </small></li>
 {% endif %}
 
-<p> {{post.body|truncatewords:15|safe}} <br></p><br>
-
+{% comment %} <p> {{post.body|truncatewords:15|safe}} <br></p><br> {% endcomment %}
+<p>{{post.snippet}} <br></p><br>
 {% endfor %}
 
 {% else %}
