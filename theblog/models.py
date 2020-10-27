@@ -12,7 +12,7 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        # return reverse("article_detail", args={str(self.id)})      return to self blog
+        # return reverse("article_detail", args={str(self.id)})     # return to self blog
         return reverse("home") 
 
 class Profile(models.Model):
