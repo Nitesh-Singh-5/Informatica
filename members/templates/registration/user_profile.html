@@ -1,59 +1,95 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends "base.html" %} {% load static %} {% block content %}
 
-{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 col-sm-3">
+      <h3 class="text-center">User Profile</h3>
+      <div class="hover01 column">
+        <div>
+          <figure>
+            {% if page_user.profile_pic %}
 
-<h2 class="mb-3">User Profile</h2>
+            <img
+              src="{{page_user.profile_pic.url}}"
+              class="card-img"
+              alt="author's image"
+            />
 
+            {% else %}
 
-<div class="card mb-3">
-        <div class="row no-gutters">
-                <div class="col-md-2">
-                        {% if page_user.profile_pic %}
-                          
-                        <img src="{{page_user.profile_pic.url}}" class="card-img" alt="author's image">
+            <img
+              src="{% static 'images/download.png' %}"
+              class="card-img"
+              alt="author's image"
+            />
 
-                        {% else %}
-
-                        <img src="{% static 'images/download.png' %}" class="card-img" alt="author's image">
-
-                        {% endif %}
-
-                </div>
-                <div class="col-md-10">
-                        <div class="card-body">
-                                <h5 class="card-title">{{ page_user.user.first_name|capfirst }} {{ page_user.user.last_name|capfirst }}</h5>
-                                <p class="small text-muted">
-                                        
-                                        <a href="{% url 'show_profile' page_user.id %}">Profile</a> |
-
-                                        {% if page_user.website_url %}
-                                        <a href="{{ page_user.website_url }}">Website</a> |
-                                        {% endif %}
-
-                                        {% if page_user.facebook_url %}
-                                        <a href="{{ page_user.facebook_url }}">Facebook</a> |
-                                        {% endif %}
-
-                                        {% if page_user.twitter_url %}
-                                        <a href="{{ page_user.twitter_url }}">Twitter</a> |
-                                        {% endif %}
-
-                                        {% if  page_user.instagram_url %}
-                                        <a href="{{ page_user.instagram_url }}">Instagram</a> |
-                                        {% endif %}
-
-                                        {% if page_user.linkdin_url %}
-                                        <a href="{{ page_user.linkdin_url }}">Linkdin</a> 
-                                        {% endif %}
-                                </p>
-                                <p class="card-text">{{ page_user.bio }}</p>
-
-                        </div>
-                </div>
+            {% endif %}
+          </figure>
+          <span class="font-weight-bold">
+            {{ page_user.user.first_name|capfirst }}
+            {{page_user.user.last_name|capfirst }}</span>
         </div>
+    </div>
 </div>
+        <div class="col-md-8 col-sm-8 offset-1">
+         
+        </div>
 
-{% endblock content %}
+      </div>
+    </div> 
 
 
+
+
+
+
+    {% comment %}
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-2">
+          {% if page_user.profile_pic %}
+
+          <img
+            src="{{page_user.profile_pic.url}}"
+            class="card-img"
+            alt="author's image"
+          />
+
+          {% else %}
+
+          <img
+            src="{% static 'images/download.png' %}"
+            class="card-img"
+            alt="author's image"
+          />
+
+          {% endif %}
+        </div>
+        <div class="col-md-10">
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ page_user.user.first_name|capfirst }} {{
+              page_user.user.last_name|capfirst }}
+            </h5>
+            <p class="small text-muted">
+              <a href="{% url 'show_profile' page_user.id %}">Profile</a> | {%
+              if page_user.website_url %}
+              <a href="{{ page_user.website_url }}">Website</a> | {% endif %} {%
+              if page_user.facebook_url %}
+              <a href="{{ page_user.facebook_url }}">Facebook</a> | {% endif %}
+              {% if page_user.twitter_url %}
+              <a href="{{ page_user.twitter_url }}">Twitter</a> | {% endif %} {%
+              if page_user.instagram_url %}
+              <a href="{{ page_user.instagram_url }}">Instagram</a> | {% endif
+              %} {% if page_user.linkdin_url %}
+              <a href="{{ page_user.linkdin_url }}">Linkdin</a>
+              {% endif %}
+            </p>
+            <p class="card-text">{{ page_user.bio }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endcomment %} {% endblock content %}
+  </div>
+</div>
