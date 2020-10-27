@@ -13,12 +13,15 @@
 <li><a href="{% url 'article_detail' post.pk %}" class="ft-blog-heading">{{post.title|capfirst}}</a> - {{post.author.first_name}}
     {{post.author.last_name}} - {{post.post_date}}
     {% if user.is_authenticated %}
+    {% if user.id == post.author.id or request.user.is_staff %}
+
     <small>
         <a href="{% url 'update_post' post.pk %}">- (Edit)</a>
 
         <a href="{% url 'delete_post' post.pk %}">(Delete)</a>
 
     </small></li>
+{% endif %}
 {% endif %}
 
 {% comment %} <p> {{post.body|truncatewords:15|safe}} <br></p><br> {% endcomment %}
