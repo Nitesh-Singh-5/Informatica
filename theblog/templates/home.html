@@ -1,29 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% comment %} 
+<h1 >Post</h1>
+<br> {% endcomment %}
 
-<h1 class="font-weight-bold">Post</h1>
-<br>
 <ul>
 {% if post_list %}
     {% for post in object_list %}
-    <li><a href="{% url 'article_detail' post.pk %}" class="ft-blog-heading">{{post.title|capfirst}}</a> - <a href="{% url 'category' post.category|slugify %}" style="text-decoration:none">{{post.category|capfirst}} - </a> {{post.author.first_name|capfirst}}
-        {{post.author.last_name|capfirst}} - {{post.post_date}}
-        {% if user.is_authenticated %}
-        {% if user.id == post.author.id or request.user.is_staff %}
+    <div class="box-element">
+        <li><a href="{% url 'article_detail' post.pk %}" class="ft-blog-heading">{{post.title|capfirst}}</a> - <a href="{% url 'category' post.category|slugify %}" 
+            style="text-decoration:none">{{post.category|capfirst}} - </a> {{post.author.first_name|capfirst}}
+            {{post.author.last_name|capfirst}} - {{post.post_date}}
+            {% if user.is_authenticated %}
+            {% if user.id == post.author.id or request.user.is_staff %}
 
-        <small>
-            <a href="{% url 'update_post' post.pk %}">- (Edit)</a>
+                <small>
+                    <a href="{% url 'update_post' post.pk %}">- (Edit)</a>
 
-            <a href="{% url 'delete_post' post.pk %}">(Delete)</a>
-             
-        </small></li>
+                    <a href="{% url 'delete_post' post.pk %}">(Delete)</a>
+                    
+                </small></li>
 
-        {% endif %}
-        {% endif %}
+            {% endif %}
+            {% endif %}
       
    <p>{{post.snippet}} <br></p><br>
+   </div>
+<br>
     {% endfor %}
+
 
      {# .... **Now the pagination section** .... #}
     {% if is_paginated %}
