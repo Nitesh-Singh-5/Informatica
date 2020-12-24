@@ -9,15 +9,15 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-  <link rel="stylesheet" href="{% static 'css/core.css' %}">
+  <link rel="stylesheet" href="{% static 'css/core3.css' %}">
 
-  <title>{% block title %}Awesome blog{% endblock title %}</title>
+  <title>{% block title %}Informatica{% endblock title %}</title>
 </head>
 
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{% url 'home' %}">Awesome blog</a>
+    <a class="navbar-brand" href="{% url 'home' %}">Informatica</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -99,9 +99,48 @@
     {% endblock content %}
   </div>
 
-  <!-- <footer class="blogfoot">
-    <p> Awesome Blog has all c rights reserver </p>
-  </footer> -->
+  {% comment %} <footer class="footersection" id="footerid">
+	<div class="container">
+		<div class="row">
+		<div class="col-lg-4 col-md-6 col-12 footer-div text-center">
+			<div>
+				<h3>ABOUT NCREATIONS</h3>
+				<p> It's pretty simple. We're one big, happy family, focused on something I love to do: Making it easy for you to get your business online.
+					Though the technology backing it up is powerful and complex, we made NCreations easy for everyone to use.And I promise that whether you're a small business owner, a nonprofit, or just want to make a wedding site, a resume site, a portfolio site, or any kind of site at all, we'll help you get it done. Quickly. And easily. </p>
+				
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6 col-12 footer-div text-center">
+			<div>
+				<h3>NAVIGATION LINKS</h3>
+				<li><a href="index.html">HOME</a></li>
+				<li><a href="#servicediv">SERVICES</a></li>
+				<li><a href="#pricediv">PRICING</a></li>
+				<li><a href="#contactdiv">CONTACT</a></li>
+				
+			</div>
+		</div>  
+		<div class="col-lg-4 col-md-12 col-12 footer-div text-center">
+			<div>
+				<h3>SOCIAL MEDIA </h3>
+				<li><a href="https://www.instagram.com/btw_im_nitesh/"><img src="insta1.jfif" style="width: 38px; height: 38px;"></a></li><br>
+				<LI><a href="https://www.youtube.com/channel/UC3JMAgIwaGuwQO3ftjbvJVQ"><i class="fa fa-youtube-play" style="font-size:38px;color:red; background-color: white;"></i></a></LI><br>
+				<LI><a href="https://m.facebook.com/Nitesh_singh_rajput/"><i class="fa-3x fa fa-facebook" style="font-size:39px;color:blue; background-color: white;"></i></a></LI><br>
+				<LI><a href="https://www.fiverr.com/nitesh_singh5/"><img src="fiver1.jpg" style="width: 38px; height: 38px;"></a></LI>
+				
+			</div>
+		</div>    
+	</div>
+	<div class="mt-5 text-center">
+		<p>Copyright NCreations @2020 All rights are reserved </p>
+	</div>
+
+	<div class="scrolltop float-right">
+		<i class="fa fa-arrow-up" onclick="topFunction()" id="myBtn"></i>
+	</div>
+	</div>
+</footer> {% endcomment %}
+
 
   <script src="{% static 'js/all.min.js' %}"></script>
   <script src="{% static 'js/popper.js' %}"></script>
