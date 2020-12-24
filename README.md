@@ -30,13 +30,13 @@ Once `pip` has finished downloading the dependencies:
 ```
 And navigate to `http://127.0.0.1:8000/`.
 
-## For working with databases or getting the data from databases
+For working with databases or getting the data from databases
 ```sh
 $ python manage.py makemigrations
 $ python manage.py migrate
 ```
 
-## For entering admin panel
+For entering admin panel
 ```sh
 $ python manage.py createsuperuser
 ```
