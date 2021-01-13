@@ -18,14 +18,17 @@ colorama==0.4.3
 decorator==4.4.2
 defusedxml==0.6.0
 distlib==0.3.1
+dj-database-url==0.5.0
 Django==3.1
 django-ckeditor==6.0.0
 django-filter==2.4.0
+django-heroku==0.3.1
 django-js-asset==1.2.2
 djangorestframework==3.12.2
 djangorestframework-simplejwt==4.3.0
 entrypoints==0.3
 filelock==3.0.12
+gunicorn==20.0.4
 html5lib==1.1
 httpie==2.3.0
 idna==2.10
@@ -64,6 +67,7 @@ pipenv==2020.8.13
 prometheus-client==0.8.0
 prompt-toolkit==3.0.8
 protobuf==3.12.2
+psycopg2==2.8.6
 PyAutoGUI==0.9.50
 pycodestyle==2.6.0
 pycparser==2.20
@@ -106,5 +110,6 @@ virtualenv==20.0.33
 virtualenv-clone==0.5.4
 wcwidth==0.2.5
 webencodings==0.5.1
+whitenoise==5.2.0
 widgetsnbextension==3.5.1
 wrapt==1.12.1
